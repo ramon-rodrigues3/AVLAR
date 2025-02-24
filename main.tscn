@@ -25,6 +25,11 @@ custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
 theme_override_constants/separation = 8
 
+[node name="AddNewCategory" type="Button" parent="Categorias/VBoxContainer"]
+custom_minimum_size = Vector2(200, 64)
+layout_mode = 2
+text = "+"
+
 [node name="Section" type="ScrollContainer" parent="."]
 layout_mode = 0
 offset_left = 200.0
@@ -63,5 +68,6 @@ layout_mode = 2
 text = "Novo Molde +"
 
 [connection signal="categoria_alterada" from="Categorias" to="Section" method="_on_categorias_categoria_alterada"]
+[connection signal="pressed" from="Categorias/VBoxContainer/AddNewCategory" to="Categorias" method="abrir_cena_nova_categoria"]
 [connection signal="pressed" from="Section/VBoxContainer/AddNewItem" to="Section" method="abrir_cena_novo_item"]
 [connection signal="pressed" from="HBoxContainer/Button" to="." method="_on_button_pressed"]

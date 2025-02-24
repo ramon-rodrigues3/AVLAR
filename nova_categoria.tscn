@@ -49,7 +49,7 @@ custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
 size_flags_horizontal = 0
 
-[node name="Button" type="Button" parent="."]
+[node name="SaveButton" type="Button" parent="."]
 layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5
@@ -63,4 +63,4 @@ grow_horizontal = 2
 grow_vertical = 0
 text = "Salvar"
 
-[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="SaveButton" to="." method="_on_save_button_pressed"]

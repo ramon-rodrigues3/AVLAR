@@ -21,12 +21,14 @@ func _on_new_metric_button_pressed():
 	vbox_metrics.add_child(new_metric)
 
 func _on_save_button_pressed():
-	var new_model = {
-		"name": model_name_line.text,
-		"fields": get_fields_array(),
-		"metrics": get_metrics_array()
-	}
-	data_api.save_new_model(new_model)
+	if model_name_line.text:
+		var new_model = {
+			"name": model_name_line.text,
+			"fields": get_fields_array(),
+			"metrics": get_metrics_array()
+		}
+		data_api.save_new_model(new_model)
+	
 	get_tree().change_scene_to_file("res://main.tscn")
 
 func get_fields_array() -> Array: # Talvez o nome correto seja field_array
