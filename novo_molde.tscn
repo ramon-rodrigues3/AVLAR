@@ -1,0 +1,91 @@
+[gd_scene load_steps=2 format=3 uid="uid://byjket8fk2jkv"]
+
+[ext_resource type="Script" path="res://novo_molde.gd" id="1_fjy3e"]
+
+[node name="NovoMolde" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_fjy3e")
+
+[node name="Label" type="Label" parent="."]
+offset_right = 1152.0
+offset_bottom = 23.0
+text = "Novo Molde"
+
+[node name="ScrollContainer" type="ScrollContainer" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.035
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 0.32
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ScrollContainer"]
+custom_minimum_size = Vector2(1152, 0)
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ScrollContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="ScrollContainer/VBoxContainer/VBoxContainer"]
+layout_mode = 2
+text = "Nome:"
+
+[node name="LineEdit" type="LineEdit" parent="ScrollContainer/VBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+size_flags_horizontal = 0
+
+[node name="VboxFields" type="VBoxContainer" parent="ScrollContainer/VBoxContainer"]
+custom_minimum_size = Vector2(1152, 0)
+layout_mode = 2
+theme_override_constants/separation = 16
+
+[node name="Label" type="Label" parent="ScrollContainer/VBoxContainer/VboxFields"]
+layout_mode = 2
+text = "Campos"
+
+[node name="NewFieldButton" type="Button" parent="ScrollContainer/VBoxContainer/VboxFields"]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+size_flags_horizontal = 0
+text = "+"
+
+[node name="VBoxMetrics" type="VBoxContainer" parent="ScrollContainer/VBoxContainer"]
+custom_minimum_size = Vector2(1152, 0)
+layout_mode = 2
+theme_override_constants/separation = 16
+
+[node name="Label" type="Label" parent="ScrollContainer/VBoxContainer/VBoxMetrics"]
+layout_mode = 2
+text = "Métricas"
+
+[node name="NewMetricButton" type="Button" parent="ScrollContainer/VBoxContainer/VBoxMetrics"]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+size_flags_horizontal = 0
+text = "+"
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -28.0
+offset_top = -31.0
+offset_right = 28.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "Salvar"
+
+[connection signal="pressed" from="ScrollContainer/VBoxContainer/VboxFields/NewFieldButton" to="." method="_on_new_field_button_pressed"]
+[connection signal="pressed" from="ScrollContainer/VBoxContainer/VBoxMetrics/NewMetricButton" to="." method="_on_new_metric_button_pressed"]
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

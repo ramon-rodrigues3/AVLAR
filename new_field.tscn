@@ -1,0 +1,37 @@
+[gd_scene load_steps=2 format=3 uid="uid://p105nomint7t"]
+
+[ext_resource type="Script" path="res://new_field.gd" id="1_esxsf"]
+
+[node name="NewField" type="HBoxContainer"]
+custom_minimum_size = Vector2(200, 48)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -952.0
+offset_bottom = -600.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 32
+script = ExtResource("1_esxsf")
+
+[node name="LineEdit" type="LineEdit" parent="."]
+layout_mode = 2
+placeholder_text = "Nome do Campo"
+
+[node name="OptionButton" type="OptionButton" parent="."]
+layout_mode = 2
+item_count = 3
+selected = 0
+popup/item_0/text = "Texto"
+popup/item_0/id = 0
+popup/item_1/text = "Inteiro"
+popup/item_1/id = 1
+popup/item_2/text = "Decimal"
+popup/item_2/id = 2
+
+[node name="Button" type="Button" parent="."]
+custom_minimum_size = Vector2(48, 48)
+layout_mode = 2
+text = "⌂"
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
