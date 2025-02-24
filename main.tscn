@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://chlj4gl0mb1ey"]
 
-[ext_resource type="Script" path="res://categorias.gd" id="1_pr41t"]
-[ext_resource type="Script" path="res://section.gd" id="2_y4t8n"]
+[ext_resource type="Script" path="res://scripts/categorias.gd" id="1_pr41t"]
+[ext_resource type="Script" path="res://scripts/section.gd" id="2_y4t8n"]
 
 [node name="main" type="Control"]
 layout_mode = 3
