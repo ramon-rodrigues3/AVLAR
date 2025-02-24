@@ -37,7 +37,7 @@ layout_mode = 2
 layout_mode = 2
 text = "Nome:"
 
-[node name="LineEdit" type="LineEdit" parent="ScrollContainer/VBoxContainer/VBoxContainer"]
+[node name="ModelNameLine" type="LineEdit" parent="ScrollContainer/VBoxContainer/VBoxContainer"]
 custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
 size_flags_horizontal = 0
@@ -72,7 +72,7 @@ layout_mode = 2
 size_flags_horizontal = 0
 text = "+"
 
-[node name="Button" type="Button" parent="."]
+[node name="SaveButton" type="Button" parent="."]
 layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5
@@ -88,4 +88,4 @@ text = "Salvar"
 
 [connection signal="pressed" from="ScrollContainer/VBoxContainer/VboxFields/NewFieldButton" to="." method="_on_new_field_button_pressed"]
 [connection signal="pressed" from="ScrollContainer/VBoxContainer/VBoxMetrics/NewMetricButton" to="." method="_on_new_metric_button_pressed"]
-[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="SaveButton" to="." method="_on_save_button_pressed"]

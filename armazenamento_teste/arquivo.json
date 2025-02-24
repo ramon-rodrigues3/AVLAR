@@ -1,0 +1,10 @@
+{
+	"fields": [
+		{
+			"name": "Substitui",
+			"type": "String"
+		}
+	],
+	"metrics": [],
+	"name": "Novo"
+}

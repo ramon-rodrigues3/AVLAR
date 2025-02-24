@@ -14,11 +14,11 @@ grow_vertical = 2
 theme_override_constants/separation = 32
 script = ExtResource("1_esxsf")
 
-[node name="LineEdit" type="LineEdit" parent="."]
+[node name="FieldNameLine" type="LineEdit" parent="."]
 layout_mode = 2
 placeholder_text = "Nome do Campo"
 
-[node name="OptionButton" type="OptionButton" parent="."]
+[node name="FieldTypeOption" type="OptionButton" parent="."]
 layout_mode = 2
 item_count = 3
 selected = 0
@@ -29,9 +29,9 @@ popup/item_1/id = 1
 popup/item_2/text = "Decimal"
 popup/item_2/id = 2
 
-[node name="Button" type="Button" parent="."]
+[node name="DeleteButton" type="Button" parent="."]
 custom_minimum_size = Vector2(48, 48)
 layout_mode = 2
 text = "⌂"
 
-[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="DeleteButton" to="." method="_on_button_pressed"]
