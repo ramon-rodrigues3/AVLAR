@@ -12,6 +12,7 @@ grow_vertical = 2
 script = ExtResource("1_p13ge")
 
 [node name="Label" type="Label" parent="."]
+layout_mode = 0
 offset_right = 1152.0
 offset_bottom = 23.0
 text = "Nova Categoria"
@@ -34,7 +35,7 @@ layout_mode = 2
 layout_mode = 2
 text = "Nome:"
 
-[node name="LineEdit" type="LineEdit" parent="ScrollContainer/VBoxContainer"]
+[node name="CategoryNameLine" type="LineEdit" parent="ScrollContainer/VBoxContainer"]
 custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
 size_flags_horizontal = 0
@@ -43,7 +44,7 @@ size_flags_horizontal = 0
 layout_mode = 2
 text = "Molde:"
 
-[node name="LineEdit2" type="OptionButton" parent="ScrollContainer/VBoxContainer"]
+[node name="CategoryModelOption" type="OptionButton" parent="ScrollContainer/VBoxContainer"]
 custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
 size_flags_horizontal = 0
