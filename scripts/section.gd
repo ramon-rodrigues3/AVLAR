@@ -11,6 +11,7 @@ func _ready():
 	add_new_item_button.custom_minimum_size = Vector2(700, 200) 
 	add_new_item_button.size_flags_horizontal = Control.SIZE_SHRINK_CENTER
 	add_new_item_button.size_flags_vertical = Control.SIZE_SHRINK_CENTER
+	add_new_item_button.pressed.connect(abrir_cena_novo_item)
 	vbox.add_child(add_new_item_button)
 	
 	for item in itemAPI.get_item_list():
@@ -22,5 +23,6 @@ func _ready():
 		label.text = item["nome"]
 		button.add_child(label)
 		vbox.add_child(button)
-	
 
+func abrir_cena_novo_item():
+	get_tree().change_scene_to_file("res://novo_item.tscn")
