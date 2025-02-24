@@ -38,6 +38,13 @@ custom_minimum_size = Vector2(952, 650)
 layout_mode = 2
 theme_override_constants/separation = 32
 
+[node name="AddNewItem" type="Button" parent="Section/VBoxContainer"]
+custom_minimum_size = Vector2(700, 48)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+text = "+"
+
 [node name="HBoxContainer" type="HBoxContainer" parent="."]
 layout_mode = 0
 offset_right = 1152.0
@@ -55,4 +62,6 @@ vertical_alignment = 1
 layout_mode = 2
 text = "Novo Molde +"
 
+[connection signal="categoria_alterada" from="Categorias" to="Section" method="_on_categorias_categoria_alterada"]
+[connection signal="pressed" from="Section/VBoxContainer/AddNewItem" to="Section" method="abrir_cena_novo_item"]
 [connection signal="pressed" from="HBoxContainer/Button" to="." method="_on_button_pressed"]

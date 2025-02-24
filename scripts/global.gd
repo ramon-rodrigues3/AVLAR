@@ -3,4 +3,4 @@ extends Node
 var categoria: String
 
 func _ready():
-	categoria = "Filme" #para fins de teste
+	categoria = "Filmes" #para fins de teste
