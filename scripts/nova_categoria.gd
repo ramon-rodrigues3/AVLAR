@@ -12,7 +12,7 @@ func _on_save_button_pressed():
 	if category_name_line.text:
 		var new_category = {
 			"name": category_name_line.text,
-			"model": category_model_option.get_item_text(
+			"model_id": category_model_option.get_item_text(
 				category_model_option.selected
 			)
 		}
