@@ -1,11 +1,10 @@
 extends Control
 
-var moldeAPI = Molde.new()
 @onready var vbox = $ScrollContainer/VBoxContainer
 
 func _ready():
-	
-	for campo in moldeAPI.get_fields(Global.categoria):
+	print(DataApi.get_item_list(Global.categoria))
+	for campo in DataApi.get_item_list(Global.categoria):
 		var vbox_2 = VBoxContainer.new()
 		var label = Label.new()
 		label.text = campo
@@ -15,7 +14,7 @@ func _ready():
 		vbox_2.add_child(line_edit)
 		vbox.add_child(vbox_2)
 
-	for metrica in moldeAPI.get_metrics(Global.categoria):
+	for metrica in []: #DataApi.get_metrics(Global.categoria):
 		var vbox_2 = VBoxContainer.new()
 		var label = Label.new()
 		label.text = metrica

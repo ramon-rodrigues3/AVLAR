@@ -1,6 +1,6 @@
 extends ScrollContainer
 
-var itemAPI = Item.new()
+var data_api = DataAPI.new()
 @onready var vbox = $VBoxContainer
 
 func _ready():
@@ -11,7 +11,7 @@ func carregar_itens() -> void:
 	for item in get_tree().get_nodes_in_group("item"):
 		item.queue_free()
 	
-	for item in itemAPI.get_item_list(Global.categoria):
+	for item in data_api.get_item_list(Global.categoria):
 		var button = Button.new()
 		button.custom_minimum_size = Vector2(700, 200) 
 		button.size_flags_horizontal = Control.SIZE_SHRINK_CENTER
