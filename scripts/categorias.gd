@@ -2,13 +2,12 @@ extends ScrollContainer
 
 signal categoria_alterada(nova_categoria)
 
-var data_api = DataAPI.new()
 @onready var vbox = $VBoxContainer
 
 func _ready():
 	vbox.add_spacer(true)
 	
-	for categoria in data_api.get_category_name_list():
+	for categoria in DataApi.get_category_name_list():
 		var button = preload("res://categoria_button.tscn").instantiate()
 		button.text = categoria
 		button.categoria = categoria # talvez seja desnecessário

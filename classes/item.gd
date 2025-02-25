@@ -1,4 +1,4 @@
-class_name Item
+class_name ItemApi
 extends Node
 
 func _ready():

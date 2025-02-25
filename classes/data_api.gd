@@ -1,18 +1,53 @@
-class_name DataAPI
 extends Node
+
+class Category:
+	var name: String
+	var model: Model
+	
+	func _init(name: String, model: Model):
+		name = name
+		model = model
+	
+class Model:
+	var name: String
+	var fields: Array
+	var metrics: Array
+	
+	func _init(dict: Dictionary):
+		name = dict["name"]
+		fields = dict["fields"]
+		metrics = dict["metrics"]
+
+class Item:
+	pass
+
+var categorias: Array[Category]
 
 var caminho = "res://armazenamento_teste/arquivo.cfg"
 var category_path = "res://armazenamento_teste/category.cfg"
 
-var config_file = ConfigFile.new()
+var model_cf = ConfigFile.new()
 var category_cf = ConfigFile.new()
 var item_cf = ConfigFile.new()
 
 func _init():
-	config_file.load(caminho)
+	model_cf.load(caminho)
 	category_cf.load(category_path)
 	criar_diretorios()
-	
+
+func load_categorys():
+	for key in category_cf.get_section_keys("Category"):
+		var data_category = category_cf.get_value("Category", key)
+		var categoria = Category.new(
+			data_category["name"],
+			get_model(data_category["model"])
+		)
+		categorias.append(categoria)
+
+func get_model(model_id) -> Model:
+	var model_dict = model_cf.get_value("Models", model_id)
+	return Model.new(model_dict)
+
 func criar_diretorios():
 	var dir = DirAccess.open("res://armazenamento_teste")
 	
@@ -20,8 +55,8 @@ func criar_diretorios():
 		dir.make_dir("res://armazenamento_teste/itens")
 
 func save_new_model(new_model: Dictionary) -> void:
-	config_file.set_value("Models", new_model["name"], new_model)
-	config_file.save(caminho)
+	model_cf.set_value("Models", new_model["name"], new_model)
+	model_cf.save(caminho)
 	
 func save_new_category(new_category: Dictionary) -> void:
 	print("Debug ... Salvando")
@@ -29,7 +64,7 @@ func save_new_category(new_category: Dictionary) -> void:
 	category_cf.save(category_path)
 
 func get_model_name_list() -> Array:
-	return config_file.get_section_keys("Models")
+	return model_cf.get_section_keys("Models")
 
 func get_category_name_list() -> Array:
 	var categorys = category_cf.get_section_keys("Category")
@@ -56,6 +91,6 @@ func save_new_item(new_item, category):
 
 func get_model_fields_from_category(category: String):
 	var model_name = category_cf.get_value("Category", category)["model"]
-	var model = config_file.get_value("Models", model_name)
+	var model = model_cf.get_value("Models", model_name)
 		
 	return model["fields"]

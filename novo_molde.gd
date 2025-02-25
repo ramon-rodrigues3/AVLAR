@@ -1,7 +1,5 @@
 extends Control
 
-var data_api = DataAPI.new()
-
 @onready var vbox_fields = $ScrollContainer/VBoxContainer/VboxFields
 @onready var vbox_metrics = $ScrollContainer/VBoxContainer/VBoxMetrics
 @onready var model_name_line = $ScrollContainer/VBoxContainer/VBoxContainer/ModelNameLine
@@ -27,7 +25,7 @@ func _on_save_button_pressed():
 			"fields": get_fields_array(),
 			"metrics": get_metrics_array()
 		}
-		data_api.save_new_model(new_model)
+		DataApi.save_new_model(new_model)
 	
 	get_tree().change_scene_to_file("res://main.tscn")
 

@@ -3,7 +3,6 @@ extends Control
 @onready var vbox = $ScrollContainer/VBoxContainer
 
 func _ready():
-	print(DataApi.get_item_list(Global.categoria))
 	for campo in DataApi.get_item_list(Global.categoria):
 		var vbox_2 = VBoxContainer.new()
 		var label = Label.new()
